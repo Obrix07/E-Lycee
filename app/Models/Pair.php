@@ -12,6 +12,8 @@ class Pair extends Model
     protected $table = 'pair';
 
     protected $fillable = [
-        'from','to','name'
+        'from',
+        'to',
+        'name'
    ];
 }

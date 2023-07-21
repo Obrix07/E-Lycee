@@ -12,7 +12,7 @@ class StatutController extends Controller
     public function index()
     {
         try {
-            $response = Http::get('/api/currencies');
+            $response = Http::get('http://127.0.0.1:8000/api/currencies');
     
             if ($response->successful()) {
                 return response()->json(['message' => 'Service is functional'], 200);

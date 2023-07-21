@@ -20,6 +20,7 @@ use App\Http\Controllers\StatutController;
 Route::apiResource('currencies', CurrencyController::class);
 Route::apiResource('pair', PairController::class);
 Route::apiResource('statut', StatutController::class);
+Route::get('convert/{from}/{to}/{amount}', [CurrencyController::class, 'convertCurrency']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
