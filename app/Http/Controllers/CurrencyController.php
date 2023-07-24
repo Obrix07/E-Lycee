@@ -30,31 +30,12 @@ class CurrencyController extends Controller
 
         $convertedAmount = $amount * $pair->value;
 
-        return response()->json(['converted_amount' => $convertedAmount], 200);
-    }
-
-
-    public function show($id)
-    {
-        return Currencies::findOrFail($id);
-    }
-
-    public function store(Request $request)
-    {
-        return Currencies::create($request->all());
-    }
-
-    public function update(Request $request, $id)
-    {
-        $currency = Currencies::findOrFail($id);
-        $currency->update($request->all());
-        return $currency;
-    }
-
-    public function destroy($id)
-    {
-        $currency = Currencies::findOrFail($id);
-        $currency->delete();
-        return response()->json(['message' => 'Currency deleted successfully']);
+        return response()->json([
+            'From' => $from,
+            'To' => $to,
+            'Value' => $pair->value,
+            'Amount' => $amount,
+            'Converted amount' => $convertedAmount,
+        ], 200);
     }
 }
